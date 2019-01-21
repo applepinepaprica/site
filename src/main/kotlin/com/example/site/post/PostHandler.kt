@@ -21,12 +21,13 @@ class PostHandler (private val postRepository: PostRepository) {
             postRepository.save(post)
 
     fun updatePost(id: String, post: Post): Mono<ResponseEntity<Post>> =
-        postRepository.findById(id)
+            postRepository.findById(id)
                     .flatMap {postRepository.save(it.copy(title = post.title, text = post.text))}
                     .map{ResponseEntity.ok(it)}
                     .defaultIfEmpty(ResponseEntity.notFound().build())
 
-    fun deletePost(id: String): Mono<ResponseEntity<Void>> = postRepository.findById(id)
+    fun deletePost(id: String): Mono<ResponseEntity<Void>> =
+            postRepository.findById(id)
                     .flatMap { postRepository.delete(it)
                                         .then(Mono.just(ResponseEntity<Void>(HttpStatus.OK))) }
                     .defaultIfEmpty(ResponseEntity.notFound().build())

@@ -12,7 +12,7 @@ class PostController(private val postHandler: PostHandler) {
 
     @RequestMapping("/posts", method = [RequestMethod.GET])
     fun showAllPosts(): Flux<Post> =
-        postHandler.showAllPosts()
+            postHandler.showAllPosts()
 
     @RequestMapping("/post/{id}", method = [RequestMethod.GET])
     fun showPost(@PathVariable id: String): Mono<ResponseEntity<Post>> =
@@ -25,7 +25,7 @@ class PostController(private val postHandler: PostHandler) {
     @RequestMapping("/post/{id}", method = [RequestMethod.PUT])
     fun updatePost(@PathVariable id: String,
                    @Valid @RequestBody post: Post): Mono<ResponseEntity<Post>> =
-        postHandler.updatePost(id, post)
+            postHandler.updatePost(id, post)
 
     @RequestMapping("/post/{id}", method = [RequestMethod.DELETE])
     fun deletePost(@PathVariable id: String): Mono<ResponseEntity<Void>> =
