@@ -1,5 +1,6 @@
 package com.example.site.post
 
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Flux
@@ -23,5 +24,10 @@ class PostHandler (private val postRepository: PostRepository) {
         postRepository.findById(id)
                     .flatMap {postRepository.save(it.copy(title = post.title, text = post.text))}
                     .map{ResponseEntity.ok(it)}
+                    .defaultIfEmpty(ResponseEntity.notFound().build())
+
+    fun deletePost(id: String): Mono<ResponseEntity<Void>> = postRepository.findById(id)
+                    .flatMap { postRepository.delete(it)
+                                        .then(Mono.just(ResponseEntity<Void>(HttpStatus.OK))) }
                     .defaultIfEmpty(ResponseEntity.notFound().build())
 }

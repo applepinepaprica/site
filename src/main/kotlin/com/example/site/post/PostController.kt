@@ -26,4 +26,8 @@ class PostController(private val postHandler: PostHandler) {
     fun updatePost(@PathVariable id: String,
                    @Valid @RequestBody post: Post): Mono<ResponseEntity<Post>> =
         postHandler.updatePost(id, post)
+
+    @RequestMapping("/post/{id}", method = [RequestMethod.DELETE])
+    fun deletePost(@PathVariable id: String): Mono<ResponseEntity<Void>> =
+            postHandler.deletePost(id)
 }
