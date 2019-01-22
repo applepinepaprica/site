@@ -19,6 +19,8 @@ fun beans() = beans {
                 .and()
                 .httpBasic()
                 .and()
+                .csrf()
+                .disable()
                 .build()
     }
 
