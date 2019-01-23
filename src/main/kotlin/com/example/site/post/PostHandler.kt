@@ -1,5 +1,6 @@
 package com.example.site.post
 
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
@@ -9,8 +10,8 @@ import reactor.core.publisher.Mono
 @Component
 class PostHandler (private val postRepository: PostRepository) {
 
-    fun showAllPosts(): Flux<Post> =
-            postRepository.findAll()
+    fun showAllPosts(page: Pageable): Flux<Post> =
+            postRepository.findAllPaged(page)
 
     fun showPost(id: String): Mono<ResponseEntity<Post>> =
             postRepository.findById(id)

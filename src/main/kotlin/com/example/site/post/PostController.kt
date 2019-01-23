@@ -1,5 +1,6 @@
 package com.example.site.post
 
+import org.springframework.data.domain.PageRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
@@ -11,8 +12,9 @@ import javax.validation.Valid
 class PostController(private val postHandler: PostHandler) {
 
     @RequestMapping("/posts", method = [RequestMethod.GET])
-    fun showAllPosts(): Flux<Post> =
-            postHandler.showAllPosts()
+    fun showAllPosts(@RequestParam(name = "page", defaultValue = "0") page: Int,
+                     @RequestParam(name = "size", defaultValue = "20") size: Int): Flux<Post> =
+            postHandler.showAllPosts(PageRequest.of(page, size))
 
     @RequestMapping("/post/{id}", method = [RequestMethod.GET])
     fun showPost(@PathVariable id: String): Mono<ResponseEntity<Post>> =
