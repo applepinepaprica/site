@@ -13,7 +13,7 @@ data class User(
         private var password: String? = null,
         var active: Boolean = true,
         var roles: List<String> = ArrayList()
-) : UserDetails {
+): UserDetails {
 
     override fun getUsername() = username
 
