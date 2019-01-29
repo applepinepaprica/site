@@ -8,11 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails
 
 @Document
 data class User(
-        @Id var id: String? = null,
-        private var username: String? = null,
-        private var password: String? = null,
-        var active: Boolean = true,
-        var roles: List<String> = ArrayList()
+        @Id val id: String? = null,
+        private val username: String? = null,
+        private val password: String? = null,
+        val active: Boolean = true,
+        val roles: List<String> = ArrayList()
 ): UserDetails {
 
     override fun getUsername() = username

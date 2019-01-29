@@ -7,8 +7,8 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import javax.validation.Valid
 
-@RequestMapping("/controller")
 @RestController
+@RequestMapping("/controller")
 class PostController(private val postHandler: PostHandler) {
 
     @RequestMapping("/posts", method = [RequestMethod.GET])
