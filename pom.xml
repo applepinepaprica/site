@@ -58,6 +58,10 @@
 		</dependency>
 	</dependencies>
 
+	<scm>
+		<developerConnection>scm:git:https://github.com/applepinepaprica/site.git</developerConnection>
+	</scm>
+
 	<build>
 		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
 		<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
@@ -84,6 +88,11 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
 			</plugin>
 		</plugins>
 	</build>
