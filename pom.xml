@@ -58,7 +58,7 @@
 	</dependencies>
 
 	<scm>
-		<developerConnection>scm:git:https://github.com/applepinepaprica/site.git</developerConnection>
+		<developerConnection>scm:git:git@github-apple:applepinepaprica/site.git</developerConnection>
 	  <tag>HEAD</tag>
   </scm>
 
