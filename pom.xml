@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>site</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>site</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -59,7 +59,7 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/applepinepaprica/site.git</developerConnection>
-	  <tag>my-branch</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<build>
