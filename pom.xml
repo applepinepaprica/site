@@ -94,6 +94,57 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.5.3</version>
 			</plugin>
+			<plugin>
+				<groupId>se.bjurr.gitchangelog</groupId>
+				<artifactId>git-changelog-maven-plugin</artifactId>
+				<version>1.59</version>
+				<executions>
+					<execution>
+						<id>GenerateGitChangelog</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>git-changelog</goal>
+						</goals>
+						<configuration>
+							 <templateContent>
+							 <![CDATA[
+							# Changelog
+							Changelog of My Project.
+
+							{{#tags}}
+							## {{name}}
+							{{#issues}}
+							{{#hasIssue}}
+							{{#hasLink}}
+							### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
+							{{/hasLink}}
+							{{^hasLink}}
+							### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
+							{{/hasLink}}
+							{{/hasIssue}}
+							{{^hasIssue}}
+							### {{name}}
+							{{/hasIssue}}
+
+							{{#commits}}
+							**{{{messageTitle}}}**
+
+							{{#messageBodyItems}}
+							* {{.}} 
+							{{/messageBodyItems}}
+
+							[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+
+							{{/commits}}
+
+							{{/issues}}
+							{{/tags}}
+							 ]]>
+							 </templateContent>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
