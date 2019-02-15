@@ -59,7 +59,7 @@
 
 	<scm>
 		<developerConnection>scm:git:git@github-apple:applepinepaprica/site.git</developerConnection>
-	  <tag>HEAD</tag>
+	  <tag>my-branch-1.6</tag>
   </scm>
 
 	<build>
