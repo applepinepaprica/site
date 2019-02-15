@@ -107,39 +107,39 @@
 						</goals>
 						<configuration>
 							 <templateContent>
-							 <![CDATA[
-							# Changelog
-							Changelog of My Project.
+ <![CDATA[
+# Changelog
+Changelog of My Project.
 
-							{{#tags}}
-							## {{name}}
-							{{#issues}}
-							{{#hasIssue}}
-							{{#hasLink}}
-							### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-							{{/hasLink}}
-							{{^hasLink}}
-							### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-							{{/hasLink}}
-							{{/hasIssue}}
-							{{^hasIssue}}
-							### {{name}}
-							{{/hasIssue}}
+{{#tags}}
+## {{name}}
+{{#issues}}
+{{#hasIssue}}
+{{#hasLink}}
+### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
+{{/hasLink}}
+{{^hasLink}}
+### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
+{{/hasLink}}
+{{/hasIssue}}
+{{^hasIssue}}
+### {{name}}
+{{/hasIssue}}
 
-							{{#commits}}
-							**{{{messageTitle}}}**
+{{#commits}}
+**{{{messageTitle}}}**
 
-							{{#messageBodyItems}}
-							* {{.}} 
-							{{/messageBodyItems}}
+{{#messageBodyItems}}
+* {{.}} 
+{{/messageBodyItems}}
 
-							[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
 
-							{{/commits}}
+{{/commits}}
 
-							{{/issues}}
-							{{/tags}}
-							 ]]>
+{{/issues}}
+{{/tags}}
+ ]]>
 							 </templateContent>
 						</configuration>
 					</execution>
